@@ -1,30 +1,43 @@
 package com.company;
-import people.Student;
-import people.Teacher;
 
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
- Scanner in= new Scanner(System.in);
-Address address1=new Address("Pushkina",26,74);
-        Address address2=new Address("Goreckogo",42,11);
-        Address address3=new Address("Akademiya",13,67);
-Student student1=new Student("Nikita",20,address1);
-//student1.toString();
-        Student student2=new Student("Pasha",22,address1);
-Teacher teacher1=new Teacher("Vsevolod",47,address1);
-//teacher1.toString();
-        Teacher teacher2=new Teacher("Vasya",38,address1);
-        System.out.println("Enter number of work hours");
-int w=in.nextInt();
-        System.out.println("number of work hours"+w);
-        System.out.println("Enter hourly rate");
-int q=in.nextInt();
-        System.out.println("hourly rate"+q);
-        System.out.println("Teacher's salary is "+teacher1.zp(w, q));
-        Group gruppa=new Group("10702320 ",3,student2,address2,teacher2,address3);
-        gruppa.infoGroup();
-        gruppa.zap(teacher1.zp(w,q));
-        System.out.println("Teacher's salary "+gruppa.zap(teacher1.zp(w,q)));
+        Scanner in = new Scanner(System.in);
+        //Ex.1
+        String first = "I learn Java";
+        String second = "I will become a programmer";
+        char[] massChar= new char[26];
+        massChar[0]=first.charAt(0);
+        second.getChars(1,26,massChar,1);
+        System.out.println(new String(massChar));
+        System.out.println();
+        //Ex.2
+        String s1="homeTask";
+        String s2="Hometask";
+        s1.substring(3,8);
+        s2.substring(3,8);
+        boolean c=false;
+        if(s1.equals(s2)) c=true;
+        System.out.println(c);
+        if(s1.equalsIgnoreCase(s2)) c=true;
+        System.out.println(c);
+        System.out.println();
+        //Ex.3
+        boolean e1=s1.endsWith("ask");
+        boolean e2=s2.endsWith("ask");
+        if(e1==e2) System.out.println("true");
+        int e3=s1.indexOf("e");
+        int e4=s2.indexOf("e");
+        if(e3>=0 && e4>=0) System.out.println("true");
+        System.out.println();
+        //Ex.4
+        StringBuilder sb= new StringBuilder("25 + 40 = 65");
+        sb.deleteCharAt(8);
+        sb.insert(8,"ravno");
+        System.out.println(sb);
+        sb.replace(8,13,"ravn");
+        System.out.println(sb);
     }
 }
