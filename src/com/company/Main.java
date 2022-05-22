@@ -1,30 +1,43 @@
 package com.company;
-import people.Student;
-import people.Teacher;
 
-import java.util.Scanner;
+import com.company.Service.Converter;
+import com.company.model.*;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
- Scanner in= new Scanner(System.in);
-Address address1=new Address("Pushkina",26,74);
-        Address address2=new Address("Goreckogo",42,11);
-        Address address3=new Address("Akademiya",13,67);
-Student student1=new Student("Nikita",20,address1);
-//student1.toString();
-        Student student2=new Student("Pasha",22,address1);
-Teacher teacher1=new Teacher("Vsevolod",47,address1);
-//teacher1.toString();
-        Teacher teacher2=new Teacher("Vasya",38,address1);
-        System.out.println("Enter number of work hours");
-int w=in.nextInt();
-        System.out.println("number of work hours"+w);
-        System.out.println("Enter hourly rate");
-int q=in.nextInt();
-        System.out.println("hourly rate"+q);
-        System.out.println("Teacher's salary is "+teacher1.zp(w, q));
-        Group gruppa=new Group("10702320 ",3,student2,address2,teacher2,address3);
-        gruppa.infoGroup();
-        gruppa.zap(teacher1.zp(w,q));
-        System.out.println("Teacher's salary "+gruppa.zap(teacher1.zp(w,q)));
+        Scanner in = new Scanner(System.in);
+        Address address1 = new Address("Pushkina", 13);
+        Address address2 = new Address("Lenina", 75);
+        Address address3 = new Address("Akademika", 38);
+        Address address4 = new Address("Pobediteley", 19);
+        Student student1 = new Student("Alex", 17, address1);
+        Student student2 = new Student("Dima", 17, address1);
+        Student student3 = new Student("Vasya", 19, address2);
+        Student student4 = new Student("Vika", 18, address3);
+        Teacher teacher = new Teacher("Vsevolod", address4, 35);
+        Converter<Methodist,Teacher> converter1;
+        converter1=x->new Methodist(x.getName(),x.getAge(),x.getAddress());
+        Converter<Teacher, Methodist> converter;
+        converter=a->new Teacher(a.getName(),a.getAddress(),a.getAge());
+        teacher.setAmount(10);
+        teacher.setHours(10);
+        int salary = teacher.salary();
+
+       List<Student> students = new ArrayList<>() {{
+            add(student1);
+            add(student2);
+            add(student3);
+            add(student4);
+        }};
+        students.stream().sorted().forEach(q -> System.out.println(q));
+
+        Group group = new Group(students, "10702320", teacher);
+        System.out.println("Teacher's salary is " + group.changeSalary(salary));
+        List<Group> groups = new ArrayList<>();
+        groups.add(group);
+        groups.stream().forEach(a -> {
+            System.out.println(a);
+        });
     }
 }
