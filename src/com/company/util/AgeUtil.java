@@ -1,7 +1,4 @@
-package com.company.Util;
-
-import com.company.model.Student;
-import com.company.model.Teacher;
+package com.company.util;
 
 public class AgeUtil {
     public static void checkAge(int age) throws AgeException {

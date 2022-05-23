@@ -1,9 +1,8 @@
 package com.company.base;
 
-import com.company.Util.AgeException;
-import com.company.Util.AgeUtil;
+import com.company.util.AgeException;
+import com.company.util.AgeUtil;
 import com.company.model.Address;
-import com.company.model.Student;
 
 public abstract class  People implements Comparable<People> {
     private String name;
@@ -14,6 +13,7 @@ public abstract class  People implements Comparable<People> {
         this.name = name;
         try{
             setAge(age);
+
         }catch (AgeException e){
             e.printStackTrace();
         }

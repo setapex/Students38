@@ -1,4 +1,4 @@
-package com.company.Util;
+package com.company.util;
 
 public class AgeException extends Exception {
     public AgeException(String message){

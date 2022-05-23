@@ -1,4 +1,4 @@
-package com.company.Service;
+package com.company.service;
 @FunctionalInterface
 public interface Converter<T,N>{
     T convert(N el);
