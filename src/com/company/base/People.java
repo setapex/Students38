@@ -13,7 +13,7 @@ public abstract class  People implements Comparable<People> {
         this.name = name;
         try{
             setAge(age);
-
+            this.age=age;
         }catch (AgeException e){
             e.printStackTrace();
         }
